@@ -2,7 +2,52 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
-        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-        <!-- 通过一个<bean>标签设置类的信息,通过id属性为类起个标识. -->
-        <bean id="userService" class="cn.testspring.HelloServiceImpl"></bean>
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <!-- 通过一个<bean>标签设置类的信息,通过id属性为类起个标识.
+        <bean id="userService" class="cn.testspring.HelloServiceImpl"> -->
+        <!-- 使用property标签注入属性 -->
+        <!--<property name="info" value="测试property"></property>
+        </bean>-->
+        <!-- 测试默认情况下使用无参数的构造方法 -->
+        <!-- <bean id="bean1" class="cn.testspring1.bean1"></bean> -->
+        <!-- 测试静态工厂实例化 -->
+        <!--<bean id="bean2" class="cn.testspring1.bean2Factory" factory-method="getbean2"></bean> -->
+        <!-- 第三种使用实例工厂实例化 -->
+		<!--<bean id="bean3" factory-bean="bean3Factory" factory-method="getbean3"></bean> 
+		<bean id="bean3Factory" class="cn.testspring1.bean3Factory"/>
+		<bean class="bean2 "></bean> -->
+		
+		
+		<!-- 使用无参数的构造方法实例化对象 -->
+		<!-- <bean id="customservice" class="cn.testspring2.CustomerServiceImpl">
+		<property name="name" value="名字测试"></property>
+		</bean>
+		<bean class="cn.testspring2.MyBeanPostProcessor"></bean> -->
+		
+		<bean id="collection" class="cn.testspring3.CollectionBean">
+			<!-- 注入list集合 -->
+			<property name="list">
+				<list>
+					<value>狗子</value>
+					<value>二狗子</value>
+				</list>
+			</property>
+			<!-- 注入set集合 -->
+			<property name="set">
+				<set>
+					<value>奥特曼1</value>
+					<value>奥特曼2</value>
+				</set>
+			</property>
+			<!-- 注入map集合 -->
+			<property name="map">
+				<map>
+					<entry key="奔驰" value="100000"></entry>
+					<entry key="宝马" value="150000"></entry>
+				</map>
+			</property>
+		</bean>
+		
 </beans>
