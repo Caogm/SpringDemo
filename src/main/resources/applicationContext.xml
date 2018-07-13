@@ -5,26 +5,30 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
         
-        <!-- 通过一个<bean>标签设置类的信息,通过id属性为类起个标识.
-        <bean id="userService" class="cn.testspring.HelloServiceImpl"> -->
+        <!-- 通过一个<bean>标签设置类的信息,通过id属性为类起个标识.-->
+        <!-- <bean id="userService" class="cn.testspring.HelloServiceImpl"> -->
         <!-- 使用property标签注入属性 -->
-        <!--<property name="info" value="测试property"></property>
-        </bean>-->
+        <!-- 使用setter方法注入 -->
+       <!--  <property name="info" value="测试setter方法注入属性"></property> -->
+       <!-- <property name="info" value="#{'测试SpEL:属性的注入'}"></property>
+        </bean> -->
         <!-- 测试默认情况下使用无参数的构造方法 -->
         <!-- <bean id="bean1" class="cn.testspring1.bean1"></bean> -->
         <!-- 测试静态工厂实例化 -->
-        <!--<bean id="bean2" class="cn.testspring1.bean2Factory" factory-method="getbean2"></bean> -->
+        <!-- <bean id="bean2" class="cn.testspring1.bean2Factory" factory-method="getbean2"></bean> -->
         <!-- 第三种使用实例工厂实例化 -->
-		<!--<bean id="bean3" factory-bean="bean3Factory" factory-method="getbean3"></bean> 
-		<bean id="bean3Factory" class="cn.testspring1.bean3Factory"/>
-		<bean class="bean2 "></bean> -->
+		<!-- <bean id="bean3" factory-bean="bean3Factory" factory-method="getbean3"></bean> 
+		<bean id="bean3Factory" class="cn.testspring1.bean3Factory"/> -->
+
 		
 		
 		<!-- 使用无参数的构造方法实例化对象 -->
-		<!-- <bean id="customservice" class="cn.testspring2.CustomerServiceImpl">
+		<!-- <bean id="customservice" class="cn.testspring2.CustomerServiceImpl" init-method="setup" destroy-method="teardown">
 		<property name="name" value="名字测试"></property>
-		</bean>
-		<bean class="cn.testspring2.MyBeanPostProcessor"></bean> -->
+		</bean> -->
+		<!-- bean后处理器进行功能增强 -->
+		<!-- <bean class="cn.testspring2.MyBeanPostProcessor"></bean> -->
+		
 		
 		<bean id="collection" class="cn.testspring3.CollectionBean">
 			<!-- 注入list集合 -->
@@ -47,6 +51,12 @@
 					<entry key="奔驰" value="100000"></entry>
 					<entry key="宝马" value="150000"></entry>
 				</map>
+			</property>
+			<property name="properties">
+				<props>
+					<prop key="username">root</prop>
+					<prop key="password">cgm@51316</prop>
+				</props>
 			</property>
 		</bean>
 		

@@ -4,10 +4,10 @@ package cn.testspring;
 public class HelloServiceImpl implements HelloService {
 	private String info;
 
-	/**
-	 * @param info
-	 *            the info to set
-	 */
+	public String getInfo() {
+		return info;
+	}
+
 	public void setInfo(String info) {
 		this.info = info;
 	}

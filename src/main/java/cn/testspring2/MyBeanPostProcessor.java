@@ -23,7 +23,7 @@ public class MyBeanPostProcessor implements BeanPostProcessor {
 		// TODO Auto-generated method stub
 		System.out.println("第八步：初始化之后执行");
 		// 动态代理
-		if (beanName.equals("customerservice")) {
+		if (beanName.equals("customservice")) {
 			Object proxy = Proxy.newProxyInstance(bean.getClass().getClassLoader(), bean.getClass().getInterfaces(),
 					new InvocationHandler() {
 						// 调用目标方法的时候,调用invoke方法.

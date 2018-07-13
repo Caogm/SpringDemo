@@ -2,11 +2,13 @@ package cn.testspring2;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class CustomerServiceImpl implements CustomerService, BeanNameAware, ApplicationContextAware, InitializingBean {
+public class CustomerServiceImpl
+		implements CustomerService, BeanNameAware, ApplicationContextAware, InitializingBean, DisposableBean {
 	private String name;
 
 	/**
@@ -22,8 +24,8 @@ public class CustomerServiceImpl implements CustomerService, BeanNameAware, Appl
 	 *            the name to set
 	 */
 	public void setName(String name) {
-		System.out.println("第二步，属性的注入");
 		this.name = name;
+		System.out.println("第二步，属性的注入" + name);
 	}
 
 	public CustomerServiceImpl() {
@@ -33,7 +35,7 @@ public class CustomerServiceImpl implements CustomerService, BeanNameAware, Appl
 	}
 
 	public void add() {
-		System.out.println("添加客户");
+		System.out.println("第九步：添加客户");
 	}
 
 	public void find() {

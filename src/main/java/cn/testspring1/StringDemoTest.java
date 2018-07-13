@@ -17,7 +17,7 @@ public class StringDemoTest {
 	public void testbean2() {
 		// bean2测试静态工厂实例化
 		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-		bean2 bean2 = (cn.testspring1.bean2) applicationContext.getBean("bean2");
+		bean2 bean2 = (bean2) applicationContext.getBean("bean2");
 		System.out.println(bean2);
 	}
 
